@@ -60,6 +60,7 @@ else
 echo "Baixando aplicação versão CLI"
 sleep 2
 git clone https://Qquehue@github.com/Qquehue/CTC-LocalApp-CLI
+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
 echo "instalando docker..."
 sleep 3
 
