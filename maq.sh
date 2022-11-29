@@ -3,7 +3,7 @@ echo "deseja alterar a senha do usuario root? (s/n)"
 read inst
 if [ \"$inst\" == \"s\" ];
 then
-sudo passwd ubuntu
+sudo passwd
 fi
 
 echo "Vamos atualizar sua maquina, se aparecer uma tela roxa selecione os espacos utilizando as setas para direcionamento e espaco para marcar (selecione todos os campos), aperte enter para confirmar)"
