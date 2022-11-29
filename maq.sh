@@ -1,15 +1,17 @@
 #!/bin/bash
-echo "deseja alterar a senha do usuario root? (s/n)"
+
+echo "deseja alterar a senha do usuario ubuntu? (s/n) recomendado se for primeira conexao"
 read inst
 if [ \"$inst\" == \"s\" ];
 then
-sudo passwd
+sudo passwd ubuntu
 fi
 
 echo "Vamos atualizar sua maquina, se aparecer uma tela roxa selecione os espacos utilizando as setas para direcionamento e espaco para marcar (selecione todos os campos), aperte enter para confirmar)"
 sleep 5
 
 sudo apt update && sudo apt upgrade -y
+cd /home/ubuntu
 git clone https://github.com/Qquehue/arquivos-sh.git
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo "Gostaria de instalar uma interface gráfica ? (s/n)"
@@ -30,7 +32,7 @@ echo "Cliente nao possui java instalado"
 sleep 2
 echo "Instalando o Java..."
 sleep 2
-sudo apt install default-jdk -y
+sudo apt install default-jre ; apt install openjdk-11-jre-headless; -y
 echo "instalando docker..."
 sleep 2
 sudo apt install docker.io -y
@@ -42,11 +44,8 @@ docker run -d -p 3306:3306 --name ctc -e MYSQL_ROOT_PASSWORD=urubu100 -e MYSQL_D
 
 echo "Voce esta aqui:"
 pwd
-guiJava(){
   cd /home/ubuntu/arquivos-sh
   sudo chmod 777 guiJava.sh
-  bash guiJava.sh
-}
 echo "Faça uma conexão com interface gráfica, abra o terminal e digite: guiJava"
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 fi
