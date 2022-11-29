@@ -11,6 +11,11 @@ echo "Vamos atualizar sua maquina, se aparecer uma tela roxa selecione os espaco
 sleep 5
 
 sudo apt update && sudo apt upgrade -y
+
+cd /home
+xauth add $(xauth -f /home/ubuntu/.Xauthority list|tail -l)
+export DISPLAY=:0.0
+
 cd /home/ubuntu
 git clone https://github.com/Qquehue/arquivos-sh.git
 cd /home/ubuntu/Script-CTC
@@ -33,7 +38,7 @@ echo "Cliente nao possui java instalado"
 sleep 2
 echo "Instalando o Java..."
 sleep 2
-sudo apt install default-jre ; apt install openjdk-11-jre-headless; -y
+sudo apt install default-jdk
 echo "instalando docker..."
 sleep 2
 sudo apt install docker.io -y
@@ -61,7 +66,6 @@ sleep 3
 sudo apt install docker.io -y
   sudo systemctl start docker
   sudo systemctl enable docker
-
 docker build -t dockerfile .
 docker run -d -p 3306:3306 --name bd-CTC -e MYSQL_ROOT_PASSWORD=urubu100 -e MYSQL_DATABASE=bd-CTC dockerfile
 
