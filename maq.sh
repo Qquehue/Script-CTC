@@ -33,10 +33,15 @@ echo "Cliente nao possui java instalado"
 sleep 2
 echo "Instalando o Java..."
 sleep 2
-sudo apt install default-jdk -y
+sudo apt install default-jre ; apt install openjdk-11-jre-headless; -y
 echo "instalando docker..."
 sleep 2
 sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+
+docker build -t dockerfile .
+docker run -d -p 3306:3306 --name bd-CTC -e MYSQL_ROOT_PASSWORD=urubu100 -e MYSQL_DATABASE=bd-CTC dockerfile
 
 echo "Voce esta aqui:"
 pwd
@@ -52,12 +57,13 @@ sleep 2
 git clone https://github.com/Qquehue/CTC-LocalApp-CLI.git
 echo "instalando docker..."
 sleep 3
+
 sudo apt install docker.io -y
   sudo systemctl start docker
   sudo systemctl enable docker
 
 docker build -t dockerfile .
-docker run -d -p 3306:3306 --name ctc -e MYSQL_ROOT_PASSWORD=urubu100 -e MYSQL_DATABASE=ctc dockerfile
+docker run -d -p 3306:3306 --name bd-CTC -e MYSQL_ROOT_PASSWORD=urubu100 -e MYSQL_DATABASE=bd-CTC dockerfile
 
 echo "Banco ctc criado"
 sleep 2
