@@ -20,7 +20,7 @@ read inst
 if [ \"$inst\" == \"s\" ];
 then
 
-sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
+sudo apt install default-jdk
 
 java -version
 VERSION="$(java -version 2>&1 | grep version | cut -d'"' -f2)"
@@ -33,7 +33,7 @@ echo "Cliente nao possui java instalado"
 sleep 2
 echo "Instalando o Java..."
 sleep 2
-sudo apt install default-jre ; apt install openjdk-11-jre-headless; -y
+sudo apt install default-jdk
 echo "instalando docker..."
 sleep 2
 sudo apt install docker.io -y
