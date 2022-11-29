@@ -59,7 +59,7 @@ else
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo "Baixando aplicação versão CLI"
 sleep 2
-git clone https://github.com/Qquehue/CTC-LocalApp-CLI.git
+git clone https://Qquehue@github.com/Qquehue/CTC-LocalApp-CLI
 echo "instalando docker..."
 sleep 3
 
