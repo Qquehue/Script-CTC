@@ -13,6 +13,7 @@ sleep 5
 sudo apt update && sudo apt upgrade -y
 cd /home/ubuntu
 git clone https://github.com/Qquehue/arquivos-sh.git
+cd /home/ubuntu/Script-CTC
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo "Gostaria de instalar uma interface gráfica ? (s/n)"
 read inst
