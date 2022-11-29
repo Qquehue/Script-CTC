@@ -37,11 +37,6 @@ sudo apt install default-jdk -y
 echo "instalando docker..."
 sleep 2
 sudo apt install docker.io -y
-  sudo systemctl start docker
-  sudo systemctl enable docker
-
-docker build -t dockerfile .
-docker run -d -p 3306:3306 --name ctc -e MYSQL_ROOT_PASSWORD=urubu100 -e MYSQL_DATABASE=ctc dockerfile
 
 echo "Voce esta aqui:"
 pwd
