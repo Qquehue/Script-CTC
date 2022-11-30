@@ -63,7 +63,7 @@ else
 cd /home/ubuntu
 echo "Baixando aplicação versão CLI"
 sleep 2
-git clone https://github.com/Qquehue/CTC-LocalApp-CLI.git
+git clone https://github.com/Qquehue/CTC-Cloud-CLI.git
 echo "instalando docker..."
 sleep 3
 
@@ -95,7 +95,7 @@ sleep 2
 sudo docker build -t dockerfile .
 sudo docker run -d -t --name java-CTC dockerfile
 
-cd /homr/ubuntu/CTC-LocalApp-CLI/API/local-app/target
+cd /home/ubuntu/CTC-Cloud-CLI/API/local-app/target
 echo "Voce esta aqui:"
 pwd
 sleep 2

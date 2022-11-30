@@ -1,6 +1,6 @@
 USE bd-CTC;
 
-CREATE TABLE usoMaquinaReal 
+CREATE TABLE usoMaquinaReal
 (  
 idUso INT PRIMARY KEY AUTO_INCREMENT, 
 processos INT, 
