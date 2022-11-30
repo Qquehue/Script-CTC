@@ -27,18 +27,9 @@ then
 
 sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
 
-java -version
-VERSION="$(java -version 2>&1 | grep version | cut -d'"' -f2)"
-if [ "${VERSION}" ];
-then
-echo "Cliente possui java instalado: ${VERSION}"
-sleep 2
-else
-echo "Cliente nao possui java instalado"
-sleep 2
 echo "Instalando o Java..."
 sleep 2
-sudo apt install default-jdk
+sudo apt install default-jre -y
 echo "Voce esta aqui:"
 pwd
   cd /home/ubuntu/arquivos-sh
@@ -52,11 +43,9 @@ sudo apt install docker.io -y
   sudo systemctl start docker
   sudo systemctl enable docker
   sudo docker pull mysql:8.0
-  sudo docker run -d -p 3306:3306 --name bd-CTC -e "MYSQL_DATABASE=bd-CTC" -e "MYSQL_ROOT_PASSWORD=bd-CTC" mysql:8.0
-  
+  sudo docker run -d -p 3306:3306 --name bd-CTC -e "MYSQL_DATABASE=bd-CTC" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:8.0
+ 
   sudo docker exec -it bd-CTC mysql -u root -p -B -N -e"
-CREATE DATABASE bd-CTC;
-
 USE bd-CTC;
 
 create table usoMaquinaReal 
@@ -70,7 +59,6 @@ identificador INT
 );"
 
 echo "Faça uma conexão com interface gráfica, abra o terminal e digite: guiJava"
-fi
 else
 echo "Baixando aplicação versão CLI"
 sleep 2
