@@ -39,19 +39,15 @@ sleep 2
 echo "Instalando o Java..."
 sleep 2
 sudo apt install default-jdk
-echo "instalando docker..."
-sleep 2
-sudo apt install docker.io -y
-sudo systemctl start docker
-sudo systemctl enable docker
-
-docker build -t dockerfile .
-docker run -d -p 3306:3306 --name bd-CTC -e MYSQL_ROOT_PASSWORD=urubu100 -e MYSQL_DATABASE=bd-CTC dockerfile
-
 echo "Voce esta aqui:"
 pwd
   cd /home/ubuntu/arquivos-sh
   sudo chmod 777 guiJava.sh
+
+echo "instalando docker..."
+sleep 2
+sudo apt install docker.io -y
+
 echo "Faça uma conexão com interface gráfica, abra o terminal e digite: guiJava"
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 fi
