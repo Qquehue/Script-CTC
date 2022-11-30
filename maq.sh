@@ -19,7 +19,7 @@ export DISPLAY=:0.0
 cd /home/ubuntu
 git clone https://github.com/Qquehue/arquivos-sh.git
 cd /home/ubuntu/Script-CTC
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 echo "Gostaria de instalar uma interface gráfica ? (s/n)"
 read inst
 if [ \"$inst\" == \"s\" ];
@@ -46,17 +46,35 @@ pwd
 
 echo "instalando docker..."
 sleep 2
+cd /home/ubuntu/Script-CTC
+
 sudo apt install docker.io -y
+  sudo systemctl start docker
+  sudo systemctl enable docker
+  sudo docker pull mysql:8.0
+  sudo docker run -d -p 3306:3306 --name bd-CTC -e "MYSQL_DATABASE=bd-CTC" -e "MYSQL_ROOT_PASSWORD=bd-CTC" mysql:8.0
+  
+  sudo docker exec -it bd-CTC mysql -u root -p -B -N -e"
+CREATE DATABASE bd-CTC;
+
+USE bd-CTC;
+
+create table usoMaquinaReal 
+(  
+idUso INT PRIMARY KEY AUTO_INCREMENT, 
+processos INT, 
+usoCPU DOUBLE,
+usoMemoria DOUBLE,
+upTime DATETIME, 
+identificador INT
+);"
 
 echo "Faça uma conexão com interface gráfica, abra o terminal e digite: guiJava"
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 fi
 else
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo "Baixando aplicação versão CLI"
 sleep 2
 git clone https://Qquehue@github.com/Qquehue/CTC-LocalApp-CLI
-#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
 echo "instalando docker..."
 sleep 3
 
